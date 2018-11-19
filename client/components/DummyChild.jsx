@@ -10,8 +10,8 @@ export default class Dummy extends React.Component {
     jQuery.get('http://localhost:3000/').then((data) => {
       this.setState({
         dataFromBackEnd: data
-      })
-    })
+      });
+    });
   }
   render () {
     return (
