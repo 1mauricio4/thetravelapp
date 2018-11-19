@@ -4,7 +4,7 @@ export default class Dummy extends React.Component {
   render () {
     return (
       <div className='container-child'>
-        <h1> Im the child</h1>
+        <h1>I'm the child</h1>
       </div>
     );
   }
