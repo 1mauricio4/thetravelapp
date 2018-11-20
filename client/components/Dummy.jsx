@@ -6,11 +6,13 @@ export default class Dummy extends React.Component {
   constructor() {
     super();
     this.state = {
-      dataFromBackEnd: {}
+      dataFromBackEnd: {},
+      countryData: {}
     };
     jQuery.get('http://localhost:3000/').then((data) => {
       this.setState({
-        dataFromBackEnd: data
+        dataFromBackEnd: data,
+        countryData: data.countryInfo
       });
     });
   }
@@ -18,7 +20,7 @@ export default class Dummy extends React.Component {
     return (
       <div className='container greeting'>
         <h1>{this.state.dataFromBackEnd.greeting}</h1>
-        <DummyChild/>
+        <DummyChild countryInfo={this.state.countryData}/>
       </div>
     );
   }
