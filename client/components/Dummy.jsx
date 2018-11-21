@@ -1,7 +1,7 @@
 import React from 'react';
 import jQuery from 'jquery';
-import DummyChild from './DummyChild';
 import styled from 'styled-components';
+import DummyChild from './DummyChild';
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -18,12 +18,12 @@ export default class Dummy extends React.Component {
   constructor() {
     super();
     this.state = {
-      dataFromBackEnd: {},
+      greetingData: {},
       countryData: {}
     };
     jQuery.get('http://localhost:3000/').then((data) => {
       this.setState({
-        dataFromBackEnd: data,
+        greetingData: data,
         countryData: data.countryInfo
       });
     });
@@ -33,7 +33,7 @@ export default class Dummy extends React.Component {
       <Wrapper>
         <div className='container greeting'>
           <Title>
-            <h1>{this.state.dataFromBackEnd.greeting}</h1>
+            {this.state.greetingData.greeting}
           </Title>
           <DummyChild countryInfo={this.state.countryData.countryName}/>
         </div>
