@@ -6,8 +6,9 @@ router.get('/', function(req, res, next) {
   let data = {
     greeting: 'Hello, Welcome to the USA!',
     countryInfo: {
-      countryName: 'USA',
+      countryName: 'United States of America',
       population: '330,000',
+      numberOfStates: 50,
       capital: 'Washington D.C.',
       president: 'Sunny D'
     }
