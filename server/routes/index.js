@@ -1,19 +1,18 @@
 var express = require('express');
 var router = express.Router();
+var MongoClient = require('mongodb').MongoClient; //connect to database (mLab)
+require('dotenv').config();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  let data = {
-    greeting: 'Hello, Welcome to the USA!',
-    countryInfo: {
-      countryName: 'United States of America',
-      population: '330,000',
-      numberOfStates: 50,
-      capital: 'Washington D.C.',
-      president: 'Sunny D'
-    }
-  };
-  res.json(data);
+var db
+MongoClient.connect('mongodb://' + process.env.DB_USERNAME + ':' + process.env.DB_PASSWORD + '@ds227821.mlab.com:27821/thetravelapp', { useNewUrlParser: true }, (err, database) => {
+  if (err) return console.log(err);
+  db = database.db('thetravelapp');
+});
+
+router.get('/countries/:countryCode', (req, res, next) => {
+  db.collection('countryData').find({'countryCode': req.params.countryCode}).toArray((err, result) => {
+    res.json(result);
+  });
 });
 
 module.exports = router;

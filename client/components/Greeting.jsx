@@ -1,7 +1,7 @@
 import React from 'react';
 import jQuery from 'jquery';
 import styled from 'styled-components';
-import DummyChild from './DummyChild';
+import CountryInfo from './CountryInfo';
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -14,17 +14,17 @@ const Wrapper = styled.section`
   background: papayawhip;
 `;
 
-export default class Dummy extends React.Component {
+export default class Greeting extends React.Component {
   constructor() {
     super();
     this.state = {
       greetingData: '',
       countryData: {}
     };
-    jQuery.get('http://localhost:3000/').then((data) => {
+    jQuery.get('http://localhost:3000/countries/USA').then((data) => {
       this.setState({
-        greetingData: data.greeting,
-        countryData: data.countryInfo
+        greetingData: data[0].greeting,
+        countryData: data[0].countryInfo
       });
     });
   }
@@ -35,7 +35,7 @@ export default class Dummy extends React.Component {
           <Title>
             {this.state.greetingData}
           </Title>
-          <DummyChild countryInfo={this.state.countryData}/>
+          <CountryInfo countryInfo={this.state.countryData}/>
         </div>
       </Wrapper>
     );
