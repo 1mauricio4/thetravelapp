@@ -4,7 +4,7 @@ var MongoClient = require('mongodb').MongoClient; //connect to database (mLab)
 require('dotenv').config();
 
 var db
-MongoClient.connect('mongodb://' + process.env.DB_USERNAME + ':' + process.env.DB_PASSWORD + '@ds227821.mlab.com:27821/thetravelapp', { useNewUrlParser: true }, (err, database) => {
+MongoClient.connect(process.env.MONGODB_URL, { useNewUrlParser: true }, (err, database) => {
   if (err) return console.log(err);
   db = database.db('thetravelapp');
 });

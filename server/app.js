@@ -43,7 +43,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const server = app.listen(3000, () => {
+const server = app.listen(process.env.PORT || 3000, () => {
   console.log('Listening on 3000');
 });
 
