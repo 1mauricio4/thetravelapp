@@ -1,5 +1,5 @@
 import React from 'react';
-import Dummy from './components/Dummy';
+import Greeting from './components/Greeting';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(<Dummy/>, document.getElementById('body'));
+ReactDOM.render(<Greeting/>, document.getElementById('body'));

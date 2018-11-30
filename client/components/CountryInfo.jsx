@@ -1,9 +1,17 @@
 import React from 'react';
 import jQuery from 'jquery';
+import styled from 'styled-components';
 
-export default class Dummy extends React.Component {
+const Wrapper = styled.section`
+  text-align: center;
+  padding: 1em;
+  background: pink;
+`;
+
+export default class CountryInfo extends React.Component {
   render () {
     return (
+      <Wrapper>
       <div className='container-child'>
         <h4>Country Info</h4>
         <ul className= "countryInfo">
@@ -14,6 +22,7 @@ export default class Dummy extends React.Component {
           <li><strong>President:</strong> {this.props.countryInfo.president}</li>
         </ul>
       </div>
+      </Wrapper>
     );
   }
 };
