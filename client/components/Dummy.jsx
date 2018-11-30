@@ -35,7 +35,7 @@ export default class Dummy extends React.Component {
           <Title>
             {this.state.greetingData}
           </Title>
-          <DummyChild countryInfo={this.state.countryData.countryName}/>
+          <DummyChild countryInfo={this.state.countryData}/>
         </div>
       </Wrapper>
     );
