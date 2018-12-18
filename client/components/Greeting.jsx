@@ -15,27 +15,13 @@ const Wrapper = styled.section`
 `;
 
 export default class Greeting extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      greetingData: '',
-      countryData: {}
-    };
-    jQuery.get('http://localhost:3000/countries/USA').then((data) => {
-      this.setState({
-        greetingData: data[0].greeting,
-        countryData: data[0].countryInfo
-      });
-    });
-  }
   render () {
     return (
       <Wrapper>
         <div className='container greeting'>
           <Title>
-            {this.state.greetingData}
+            {this.props.greeting}
           </Title>
-          <CountryInfo countryInfo={this.state.countryData}/>
         </div>
       </Wrapper>
     );
