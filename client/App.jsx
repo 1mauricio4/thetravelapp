@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Greeting from './components/Greeting';
 import CountryInfo from './components/CountryInfo';
+import News from './components/News';
 
 export default class App extends React.Component {
   constructor() {
@@ -24,6 +25,7 @@ export default class App extends React.Component {
       <div>
         <Greeting greeting={this.state.greetingData}/>
         <CountryInfo countryInfo={this.state.countryData}/>
+        <News />
       </div>
     )
   }

@@ -1,17 +1,16 @@
 import React from 'react';
 import jQuery from 'jquery';
 import styled from 'styled-components';
-import CountryInfo from './CountryInfo';
 
 const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
-  color: palevioletred;
+  color: black;
 `;
 
 const Wrapper = styled.section`
   padding: 4em;
-  background: papayawhip;
+  background: #e7ecef;
 `;
 
 export default class Greeting extends React.Component {
