@@ -3,3 +3,5 @@ node_modules
 dist
 .env
 .gitignore
+.DS_Store
+key.js
