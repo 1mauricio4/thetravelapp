@@ -4,4 +4,4 @@ dist
 .env
 .gitignore
 .DS_Store
-key.js
+config

@@ -27,11 +27,21 @@ componentDidMount() {
     .then(data => this.setState({
       topHeadlines: data.articles
     }));
+  this.updateNews = setInterval (
+    () => this.news(), 600000
+  );
 };
+
+news() {
+  fetch('https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=' + API_KEY)
+    .then(response => response.json())
+    .then(data => this.setState({
+      topHeadlines: data.articles
+    }));
+}
 
   render () {
     const {topHeadlines} = this.state;
-    console.log(topHeadlines);
     return(
       <Wrapper>
         <div className='container greeting'>
@@ -40,21 +50,19 @@ componentDidMount() {
           </Title>
           {topHeadlines.map(({title, description, url, urlToImage}) => (
             <div key={title}>
-            <div style={{
-              backgroundImage: `url(${urlToImage})`,
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: '100%',
-              paddingTop: '80px',
-              border:'4px solid white',
-              borderStyle:'single',
-              margin: 'auto',
-              marginMax: '100%'}}
-              >
+              <div style={{
+                backgroundImage: `url(${urlToImage})`,
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: '100%',
+                paddingTop: '80px',
+                border:'4px solid white',
+                borderStyle:'single',
+                margin: 'auto',
+                marginMax: '100%'}}>
               </div>
               <div style={{
-                marginBottom: '15px'
-                }}>
+                marginBottom: '15px'}}>
                 <a target="_blank" rel="noopener noreferrer" href={url} style={{
                   color: 'white',
                   fontSize:'20px'}}><strong>{title}</strong>
