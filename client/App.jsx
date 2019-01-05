@@ -2,6 +2,7 @@ import React from 'react';
 import jQuery from 'jquery';
 import styled from 'styled-components';
 
+import Header from './components/Header';
 import Greeting from './components/Greeting';
 import CountryInfo from './components/CountryInfo';
 import News from './components/News';
@@ -23,6 +24,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        <Header />
         <Greeting greeting={this.state.greetingData}/>
         <CountryInfo countryInfo={this.state.countryData}/>
         <News />

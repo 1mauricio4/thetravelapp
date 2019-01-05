@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { API_KEY } from '../config/keys';
+import { NEWS_API } from '../config/keys';
 
 const Wrapper = styled.section`
   padding: 2em;
@@ -22,13 +22,14 @@ export default class News extends React.Component {
   };
 
 componentDidMount() {
-  fetch('https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=' + API_KEY)
+  let countryCode = 'us';
+  fetch(`https://newsapi.org/v2/top-headlines?country=${countryCode}&pageSize=4&apiKey=${NEWS_API}`)
     .then(response => response.json())
     .then(data => this.setState({
       topHeadlines: data.articles
     }));
   this.updateNews = setInterval (
-    () => this.news(), 600000
+    () => this.news(), 300000
   );
 };
 
