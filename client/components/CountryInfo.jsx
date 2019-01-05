@@ -6,6 +6,7 @@ const Wrapper = styled.section`
   text-align: left;
   padding: 1em;
   background: #3a5c83;
+  color: white;
 `;
 
 export default class CountryInfo extends React.Component {
