@@ -13,8 +13,8 @@ export default class Weather extends React.Component {
   };
 
   componentDidMount() {
-    const City = 'los angeles';
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${City}&units=imperial&appid=${WEATHER_API}`)
+    const city = 'los angeles';
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${WEATHER_API}`)
       .then(response => response.json())
       .then(data => this.setState({
         weatherDescription: data.weather[0].description,
@@ -26,11 +26,11 @@ export default class Weather extends React.Component {
   render() {
     const {temp, weatherDescription, wind} = this.state;
     return(
-      <div style={{backgroundColor: 'white', margin: '10px'}}>
-        <h3>{temp}℉</h3>
-        <h5>{weatherDescription}</h5>
-        <h5>Wind Speed: {wind}</h5>
+      <div style={{backgroundColor: 'white', margin: '10px', padding:'5px', borderRadius: '25px', textAlign: 'center'}}>
+        <h4 style={{margin:'10px'}}>{temp}℉</h4>
+        <h6 style={{margin:'10px'}}>{weatherDescription}</h6>
+        <h6 style={{margin:'10px'}}>Wind Speed: {wind}</h6>
       </div>
-    )
-  }
-}
+    );
+  };
+};

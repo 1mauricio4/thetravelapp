@@ -12,6 +12,7 @@ MongoClient.connect(process.env.MONGODB_URL, { useNewUrlParser: true }, (err, da
 
 router.get('/countries/:countryCode', (req, res, next) => {
 // Uncomment this when ready for deployment;
+  // var ip = req.connection.remoteAddress;
   // var ip = '207.97.227.239';
   // var geo = geoip.lookup(ip);
 

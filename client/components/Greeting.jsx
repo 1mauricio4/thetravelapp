@@ -24,5 +24,5 @@ export default class Greeting extends React.Component {
         </div>
       </Wrapper>
     );
-  }
+  };
 };

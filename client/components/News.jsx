@@ -34,7 +34,7 @@ componentDidMount() {
 };
 
 news() {
-  fetch('https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=' + API_KEY)
+  fetch('https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=' + NEWS_API)
     .then(response => response.json())
     .then(data => this.setState({
       topHeadlines: data.articles
@@ -60,7 +60,8 @@ news() {
                 border:'4px solid white',
                 borderStyle:'single',
                 margin: 'auto',
-                marginMax: '100%'}}>
+                marginMax: '100%',
+                borderRadius: '10px'}}>
               </div>
               <div style={{
                 marginBottom: '15px'}}>
@@ -73,6 +74,6 @@ news() {
           ))}
         </div>
       </Wrapper>
-    )
-  }
+    );
+  };
 };
