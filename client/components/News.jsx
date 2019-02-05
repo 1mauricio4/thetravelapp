@@ -22,24 +22,25 @@ export default class News extends React.Component {
   };
 
 componentDidMount() {
-  let countryCode = 'us';
-  fetch(`https://newsapi.org/v2/top-headlines?country=${countryCode}&pageSize=4&apiKey=${NEWS_API}`)
-    .then(response => response.json())
-    .then(data => this.setState({
-      topHeadlines: data.articles
-    }));
+  var countryCode = 'US';
+  this.news(countryCode);
+  //sets an timer on which to call the news function again to refresh
   this.updateNews = setInterval (
-    () => this.news(), 300000
+    () => this.news(countryCode), 300000
   );
 };
 
-news() {
-  fetch('https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=' + NEWS_API)
+news(countryCode) {
+  fetch(`http://localhost:3000/news_api/${countryCode}`)
     .then(response => response.json())
     .then(data => this.setState({
       topHeadlines: data.articles
     }));
-}
+};
+
+componentWillUnmount() {
+  clearInterval(this.updateNews);
+};
 
   render () {
     const {topHeadlines} = this.state;
@@ -56,12 +57,13 @@ news() {
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: '100%',
-                paddingTop: '80px',
                 border:'4px solid white',
                 borderStyle:'single',
                 margin: 'auto',
                 marginMax: '100%',
-                borderRadius: '10px'}}>
+                borderRadius: '10px',
+                width: '100%',
+                height: '33%'}}>
               </div>
               <div style={{
                 marginBottom: '15px'}}>

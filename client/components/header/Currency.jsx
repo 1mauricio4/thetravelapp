@@ -21,9 +21,9 @@ export default class Currency extends React.Component {
   render() {
     const {currencyRate} = this.state;
     return(
-      <div style={{backgroundColor: 'white', margin: '10px', padding:'5px', borderRadius: '25px', textAlign: 'center'}}>
-        <h3>USD_KRW</h3>
-        <h5>₩ {currencyRate}</h5>
+      <div style={{backgroundColor: 'white', margin: '10px', padding:'5px', borderRadius: '25px', textAlign: 'center', width: '100px'}}>
+        <h4>USD_KRW</h4>
+        <h6>₩ {currencyRate}</h6>
       </div>
     );
   };
