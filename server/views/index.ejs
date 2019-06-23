@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Add Country Data</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Add Country Data</h1>
+    <span style="color:red">* are required fields</span>
+    <p></p>
+    <div>
+      <form action="/add/countrydata" method="POST">
+        <input type="text" name="countryCode" placeholder="*Country Code" />
+        <input type="text" name="name" placeholder="*Country Name" />
+        <input type="text" name="capital" placeholder="*capital" />
+        <h4>Established</h4>
+        <input type="text" name="how" placeholder="How" />
+        <input type="text" name="from" placeholder="From" />
+        <input type="text" name="when" placeholder="*When" />
+        <h4>Type of Government</h4>
+        <input type="text" name="govType" placeholder="Government type" />
+        <input type="text" name="typeHOS" placeholder="*Type HOS" />
+        <input type="text" name="nameHOS" placeholder="*Name HOS" />
+        <h4>State/Province</h4>
+        <input type="text" name="type" placeholder="*Type" />
+        <input type="text" name="count" placeholder="*Count" />
+        <h4>Language</h4>
+        <input type="text" name="primary" placeholder="*Primary Language" />
+        <input type="text" name="subLang" placeholder="subLang" />
+        <h4>Currency</h4>
+        <input type="text" name="code" placeholder="*CurrencyCode" />
+        <input type="text" name="currencyName" placeholder="*Currency Name" />
+        <input type="text" name="symbol" placeholder="Symbol" />
+        <h4>Population Size</h4>
+        <input type="text" name="population" placeholder="*Population" />
+        <h4>Calling Code</h4>
+        <input type="text" name="callingCode" placeholder="*Calling Code" />
+        <h4>Greeting</h4>
+        <input type="text" name="greeting" placeholder="*Greeting" />
+        <h3>
+          All values below should be inputed by comma & space seperated values
+        </h3>
+        <p>e.g(Canada, Colombia, France, etc)</p>
+        <h4>religion</h4>
+        <input
+          type="text"
+          name="religion"
+          placeholder="*Religion e.g(Chrislian, Islam, Buhdist)"
+        />
+        <h4>Largest Cities</h4>
+        <input
+          type="text"
+          name="largestCities"
+          placeholder="*Largest cities e.g(New York, Los Angeles, Huston)"
+        />
+        <h4>Historical Facts</h4>
+        <input
+          type="text"
+          name="historicalFacts"
+          placeholder="*Historical Facts"
+        />
+        <h4>Common Words</h4>
+        <input
+          type="text"
+          name="commonWords"
+          placeholder="*Commonly used words"
+        />
+        <h4>Food</h4>
+        <input type="text" name="food" placeholder="*Popular food" />
+        <h4>Fun Facts</h4>
+        <input type="text" name="funFacts" placeholder="*Fun Facts" />
+      </form>
+    </div>
   </body>
 </html>
